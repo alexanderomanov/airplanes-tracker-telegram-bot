@@ -24,6 +24,7 @@ bot.on("location", async (ctx) => {
   console.log(flight);
   console.log(location);
 
+  const alt = flight.alt
   const flag = flight.flag;
   const flag1 = countryEmoji[flag];
   const airport1 = airports[flight.dep_icao];
@@ -43,6 +44,7 @@ bot.on("location", async (ctx) => {
     `Рейс: ${flag1} ${airport1.city} -> ${airport2.city} \n` +
       `Расстояние: ${flight.distance.toFixed(0)} км \n` +
       `Скорость: ${speed} км/ч \n` +
+      `Высота: ${alt} м \n` +
       `\n` +
       `[Следить за самолетом](${link})`,
     { disable_web_page_preview: true, parse_mode: "Markdown" }
